@@ -1,0 +1,78 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4; /* Cor de fundo suave */
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    color: #333; /* Título em cinza escuro */
+    text-align: center;
+}
+
+form {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+}
+
+input[type="text"], input[type="url"], input[type="date"], textarea {
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 300px;
+}
+
+input[type="text"]:focus, input[type="url"]:focus, input[type="date"]:focus, textarea:focus {
+    border-color: #555; /* Cor do foco mais escura */
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #007BFF; /* Azul padrão */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3; /* Azul mais escuro no hover */
+}
+
+ul {
+    list-style-type: none; /* Remove as bolinhas da lista */
+    padding: 0;
+}
+
+li {
+    background-color: #fff; /* Fundo branco para as notícias */
+    margin: 10px 0;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+h2 {
+    color: #007BFF; /* Azul nos títulos das notícias */
+}
+
+a {
+    color: #007BFF; /* Azul nos links */
+    text-decoration: none; /* Remove o sublinhado */
+}
+
+a:hover {
+    text-decoration: underline; /* Sublinha no hover */
+}
+
+textarea {
+    resize: none; /* Remove a opção de redimensionar */
+    height: 100px; /* Altura fixa para textarea */
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+}
