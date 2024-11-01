@@ -9,7 +9,7 @@ class Noticia {
     private $conn; // Conexão com o banco de dados
     private $table_name = "noticias"; // Nome da Tabela no banco de dados
 
-    // Construtor: inicializa a conexão com o banco de dados.
+    // Construtor: inicializa a conexão com o banco de dados, que permite que todos os metodos da classe possam usar a mesma conexão.
     public function __construct() {
         $database = new Database();
         $this->conn = $database->getConnection();
@@ -20,8 +20,9 @@ class Noticia {
         $query = "INSERT INTO " . $this->table_name . " (titulo, descricao, link, data_publicacao) VALUES (:titulo, :descricao, :link, :data_publicacao)";
         $stmt = $this->conn->prepare($query);
 
-        // Associa os parâmetros para segurança e prevenção de SQL Injection
-        $stmt->bindParam(':titulo', $titulo);
+        // Associa os parâmetros a uma variável específica para segurança e prevenção de SQL Injection
+        // O uso de BindParam evita de pessoas inserirem código SQL maliciosos.
+        $stmt->bindParam(':titulo', $titulo); 
         $stmt->bindParam(':descricao', $descricao);
         $stmt->bindParam(':link', $link);
         $stmt->bindParam(':data_publicacao', $data_publicacao);
@@ -84,6 +85,7 @@ class Noticia {
     // Método para pesquisar notícias por título
     public function pesquisar($titulo) {
         // SQL para buscar notícias cujo título contenha o termo de pesquisa.
+        // o uso do LIKE permite buscar parcialmente pelo título, melhorando assim a experiência do usuário.
         $query = "SELECT * FROM " . $this->table_name . " WHERE titulo LIKE :titulo ORDER BY data_publicacao DESC";
         $stmt = $this->conn->prepare($query);
 
